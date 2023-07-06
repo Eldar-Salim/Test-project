@@ -26,6 +26,7 @@ class ProductPage(BasePage):
         except AssertionError:
             time.sleep(10)
             print("Цена в корзине не совпадает с ценой товара")
+            assert False
 
     def name_product_correct(self):
         name_product_el = self.browser.find_element(*ProductPageLocators.NAME_PRODUCT)
@@ -37,3 +38,4 @@ class ProductPage(BasePage):
         except AssertionError:
             time.sleep(10)
             print("Название товара в сообщении не совпадает с названием товара")
+            assert False

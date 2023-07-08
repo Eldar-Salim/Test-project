@@ -1,3 +1,6 @@
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 from .base_page import BasePage
 from .locators import ProductPageLocators
 import time
@@ -8,6 +11,10 @@ class ProductPage(BasePage):
         self.click_add_button()           #Здесь мы вызываем методы
         self.price_product_correct()
         self.name_product_correct()
+        self.should_not_be_success_message_after_adding_product_to_basket()
+        self.should_not_be_success_message_before_adding_product_in_basket()
+        should_disappear_success_message_after_adding_product_to_basket()
+        
         
 
     def click_add_button(self):
@@ -39,3 +46,16 @@ class ProductPage(BasePage):
             time.sleep(10)
             print("Название товара в сообщении не совпадает с названием товара")
             assert False
+
+    def should_not_be_success_message_after_adding_product_to_basket(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+           "Success message is presented, but should not be"
+
+    def should_not_be_success_message_before_adding_product_in_basket(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+           "Success message is presented, but should not be"
+        
+    def should_disappear_success_message_after_adding_product_to_basket(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+           "Success message is presented, but should not be"
+        

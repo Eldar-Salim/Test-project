@@ -19,4 +19,10 @@ class ProductPageLocators():
     NAME_PRODUCT = (By.CSS_SELECTOR, ".product_main > h1")
     NAME_NOTIFICATION_PRODUCT = (By.CSS_SELECTOR, "#messages > div > div > strong")
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages > div > div > strong")
+
+class BasketPageLocators():
+    BASKET_BUTTON_SITE_HEADER = (By.CSS_SELECTOR, ".hidden-xs > strong + span > .btn-default")
+    EMPTY_BASKET_TEXT = (By.CSS_SELECTOR, "#content_inner > p")
+    EMPTY_BASKET = (By.CSS_SELECTOR, "#content_inner > .basket-title > .row")
+    
     

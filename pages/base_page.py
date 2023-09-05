@@ -65,5 +65,9 @@ class BasePage():
     def go_to_basket_page_from_site_header(self):
         button = self.browser.find_element(*BasketPageLocators.BASKET_BUTTON_SITE_HEADER)
         button.click()
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                 " probably unauthorised user"
         
         

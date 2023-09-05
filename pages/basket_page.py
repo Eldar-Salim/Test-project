@@ -8,11 +8,7 @@ class BasketPage(BasePage):
         self.basket_should_be_empty()
         self.text_that_the_basket_empty()
 
-    def basket_should_be_empty(self):
-        pass
-        
-
-
+    
     def text_that_the_basket_empty(self):
         text_empty = self.browser.find_element(*BasketPageLocators.EMPTY_BASKET_TEXT)
         text_empty1 = text_empty.text

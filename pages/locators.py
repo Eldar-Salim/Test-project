@@ -16,8 +16,6 @@ class LoginPageLocators():
     CONFIRM_PASSWORD_FIELD = (By.CSS_SELECTOR, "input[name=registration-password2]")
     REGISTER_BUTTON = (By.CSS_SELECTOR, "button[name=registration_submit]")
                        
-    
-
 class ProductPageLocators():
     BUTTON_ADD_PRODUCT = (By.CSS_SELECTOR, ".btn-add-to-basket")
     PRICE_BASKET = (By.CSS_SELECTOR,".alert-info .alertinner > p > strong ")
@@ -30,5 +28,3 @@ class BasketPageLocators():
     BASKET_BUTTON_SITE_HEADER = (By.CSS_SELECTOR, ".hidden-xs > strong + span > .btn-default")
     EMPTY_BASKET_TEXT = (By.CSS_SELECTOR, "#content_inner > p")
     EMPTY_BASKET = (By.CSS_SELECTOR, "#content_inner > .basket-title > .row")
-    
-    

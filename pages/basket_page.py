@@ -1,19 +1,20 @@
+import time
 from .base_page import BasePage
 from .locators import BasketPageLocators
-import time
 
 
 class BasketPage(BasePage):
+    # Нет продукта в корзине при открытии главной
     def cant_see_product_in_basket_opened_from_main_page(self):
         self.basket_should_be_empty()
         self.text_that_the_basket_empty()
 
-    
+    # Проверка наличия текста, что корзина пуста
     def text_that_the_basket_empty(self):
         text_empty = self.browser.find_element(*BasketPageLocators.EMPTY_BASKET_TEXT)
         text_empty1 = text_empty.text
         try:
-            assert  "Your basket is empty. Continue shopping" ==  text_empty1
+            assert "Your basket is empty. Continue shopping" == text_empty1
         except AssertionError:
             print("Фактический текст:", text_empty1)
             time.sleep(10)
@@ -22,6 +23,7 @@ class BasketPage(BasePage):
         else:
             print("Текст, что корзина пуста, найден успешно")
 
+    # Проверка, что корзина пуста
     def basket_should_be_empty(self):
         try:
             assert self.is_not_element_present(*BasketPageLocators.EMPTY_BASKET), \
@@ -30,6 +32,3 @@ class BasketPage(BasePage):
             print("В корзине не должно быть товаров")
         else:
             print("В корзине нет товаров")
-            
-        
-        
